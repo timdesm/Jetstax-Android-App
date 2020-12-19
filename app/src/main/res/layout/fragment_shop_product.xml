@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewModel" type="be.timdesmet.hogent_mobielplus_project.ui.viewmodels.shop.ProductViewModel"/>
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:paddingBottom="20dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/backButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="30dp"
+                        android:minWidth="30dp"
+                        app:srcCompat="@drawable/ic_baseline_arrow_back" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:text="Configure"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    style="@style/viewParent.headerText"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/groupDescription"
+                    android:text="Configure your desired options and continue to checkout."
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    style="@style/viewParent.subheadText"/>
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

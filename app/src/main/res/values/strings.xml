@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Jetstax</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Menu -->
+    <string name="action_settings">Settings</string>
+
+    <!-- Login -->
+    <string name="login_title">Secure Login</string>
+    <string name="login_submit">Login</string>
+    <string name="login_forgot">Forgot?</string>
+    <string name="login_signup_1">Not a member yet?</string>
+    <string name="login_signup_2">Create a New Account</string>
+
+    <!-- Password Reset -->
+    <string name="auth_password_title">Lost Password Reset</string>
+    <string name="auth_password_subtitle">Forgotten your password? Enter your email address below to begin the reset process.</string>
+    <string name="auth_password_submit">Submit</string>
+    <string name="auth_password_login_1">Remember password?</string>
+    <string name="auth_password_login_2">Login</string>
+
+    <!-- Inputs -->
+    <string name="input_email_label">Email Address</string>
+    <string name="input_email_hint">Email</string>
+    <string name="input_password_label">Password</string>
+    <string name="input_password_hint">Password</string>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="group" type="be.timdesmet.hogent_mobielplus_project.domain.shop.ProductGroup" />
+        <variable name="clickListener" type="be.timdesmet.hogent_mobielplus_project.ui.adapters.shop.HomeProductGroupListListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#26056CEA"
+        app:cardCornerRadius="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:onClick="@{() -> clickListener.viewGroup(group)}">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:layout_margin="20dp"
+                android:id="@+id/groupImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:maxWidth="80dp"
+                android:maxHeight="80dp"
+                android:src="@drawable/android_developer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{group.name}"
+                android:textColor="@color/whiteTextColor"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
