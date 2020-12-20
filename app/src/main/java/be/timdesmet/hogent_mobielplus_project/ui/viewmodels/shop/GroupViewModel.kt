@@ -12,10 +12,7 @@ import be.timdesmet.hogent_mobielplus_project.domain.shop.product.Product
 import be.timdesmet.hogent_mobielplus_project.network.presistence.getDatabase
 import be.timdesmet.hogent_mobielplus_project.network.presistence.repositories.ProductGroupRepository
 import be.timdesmet.hogent_mobielplus_project.utils.NetworkUtil
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.lang.Exception
 
 class GroupViewModel(private val app: Application, group: ProductGroup) : ViewModel() {
@@ -40,7 +37,6 @@ class GroupViewModel(private val app: Application, group: ProductGroup) : ViewMo
                 val products = productGroupRepository.getGroupProducts(group.id)
                 products.observeForever {
                     _products.value = products.value
-                    Log.d("Testing", "Size: " + (products.value?.size ?: 0))
                 }
             } catch (e: Exception){
                 e.printStackTrace()
@@ -52,5 +48,6 @@ class GroupViewModel(private val app: Application, group: ProductGroup) : ViewMo
     override fun onCleared() {
         super.onCleared()
         viewModalJob.cancel()
+        viewModelScope.cancel()
     }
 }

@@ -15,11 +15,21 @@ class ProductPricing : Serializable {
     var gbp: ProductPricingCurrency
     var usd: ProductPricingCurrency
 
-    fun getPrice(currency: String): String {
-        return "0.00"
+    fun getPricing(currency: String): ProductPricingCurrency {
+        when (currency) {
+            "cad" -> return this.cad
+            "eur" -> return this.eur
+            "gbp" -> return this.gbp
+            "usd" -> return this.gbp
+        }
+        return this.eur
     }
 
-    fun getFormattedPrice(currency: String): String {
-        return getPrice(currency)
+    fun getDisplayPrice(currency: String): Price {
+        val prices = getPricing(currency).getPriceList()
+        prices.forEach {
+            if(it.returning >= 0.0) return it
+        }
+        return Price(0.0, 0.0, "", "", BillingCycle.FREE)
     }
 }

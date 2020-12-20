@@ -8,6 +8,7 @@
     <dimen name="normalPadding">20dp</dimen>
     <dimen name="headerTextSize">27sp</dimen>
     <dimen name="subheadTextSize">18sp</dimen>
+    <dimen name="contentHeaderTextSize">18sp</dimen>
     <dimen name="headerMoreTextSize">18sp</dimen>
     <dimen name="card_margin">5dp</dimen>
     <dimen name="frutorial_title">15sp</dimen>

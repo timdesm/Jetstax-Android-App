@@ -40,17 +40,18 @@
                         android:lines="1"
                         android:text="@{product.name}"
                         android:textColor="@color/whiteTextColor"
-                        android:textSize="20sp"
+                        android:textSize="19sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/productPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:lines="1"
                         android:text="€0.00"
                         android:textColor="@color/whiteTextColor"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                 </RelativeLayout>

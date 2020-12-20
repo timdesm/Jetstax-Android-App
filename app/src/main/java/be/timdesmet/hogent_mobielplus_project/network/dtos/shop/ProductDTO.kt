@@ -33,8 +33,7 @@ data class ProductPricingDTO(
     @Json(name = "CAD") val cad: ProductPricingCurrencyDTO,
     @Json(name = "EUR") val eur: ProductPricingCurrencyDTO,
     @Json(name = "GBP") val gbp: ProductPricingCurrencyDTO,
-    @Json(name = "USD") val usd: ProductPricingCurrencyDTO
-) {
+    @Json(name = "USD") val usd: ProductPricingCurrencyDTO) {
 
     fun toDomain() : ProductPricing {
         return ProductPricing(cad.toDomain(), eur.toDomain(), gbp.toDomain(), usd.toDomain())

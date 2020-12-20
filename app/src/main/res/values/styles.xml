@@ -45,4 +45,10 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="viewParent.contentHeader">
+        <item name="android:textColor">@color/contentTextColor</item>
+        <item name="android:textSize">@dimen/contentHeaderTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

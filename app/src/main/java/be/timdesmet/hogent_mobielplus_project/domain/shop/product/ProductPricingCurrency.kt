@@ -47,4 +47,15 @@ class ProductPricingCurrency : Serializable {
     var suffix: String
     var triennially: String
     var tsetupfee: String
+
+    fun getPriceList() : List<Price> {
+        return listOf<Price>(
+            Price(this.monthly.toDouble(), this.msetupfee.toDouble(), this.prefix, this.suffix, BillingCycle.MONTHLY),
+            Price(this.quarterly.toDouble(), this.qsetupfee.toDouble(), this.prefix, this.suffix, BillingCycle.QUARTERLY),
+            Price(this.semiannually.toDouble(), this.ssetupfee.toDouble(), this.prefix, this.suffix, BillingCycle.SEMIANNUALLY),
+            Price(this.annually.toDouble(), this.asetupfee.toDouble(), this.prefix, this.suffix, BillingCycle.ANNUALLY),
+            Price(this.biennially.toDouble(), this.bsetupfee.toDouble(), this.prefix, this.suffix, BillingCycle.BIENNIALLY),
+            Price(this.triennially.toDouble(), this.tsetupfee.toDouble(), this.prefix, this.suffix, BillingCycle.TRIENNIALLY)
+        )
+    }
 }

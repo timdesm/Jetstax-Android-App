@@ -55,7 +55,7 @@ class GroupFragment : Fragment() {
             }
             catch (e: Exception) {
                 e.printStackTrace()
-                Toast.makeText(activity, "Something went wrong when loading data", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "Something went wrong", Toast.LENGTH_LONG).show()
             }
         })
     }
@@ -65,7 +65,14 @@ class GroupFragment : Fragment() {
         binding.productList.layoutManager = manager
         val adapter = GroupProductListAdapter(GroupProductListListener(
             _viewProduct = {
-
+                val productFragment = ProductFragment()
+                val bundle = Bundle()
+                bundle.putString("product", Gson().toJson(it))
+                productFragment.arguments = bundle
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.fragment_wrapper, productFragment)
+                    ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    ?.commit()
             }
         ))
         binding.productList.adapter = adapter

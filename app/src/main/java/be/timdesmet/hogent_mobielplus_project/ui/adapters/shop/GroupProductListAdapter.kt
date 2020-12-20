@@ -24,8 +24,9 @@ class GroupProductListAdapter(val clickListener: GroupProductListListener) : Lis
         fun bind(item : Product, clickListener: GroupProductListListener) {
             binding.product = item
             binding.productDescription.text = Html.fromHtml(item.description)
+            val displayPrice = item.pricing.getDisplayPrice("eur")
+            binding.productPrice.text = displayPrice.formatRecurring() + "/" + displayPrice.cycle.getShortened()
             binding.clickListener = clickListener
-            // Picasso.get().load(item.image).into(binding.groupImage)
         }
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
