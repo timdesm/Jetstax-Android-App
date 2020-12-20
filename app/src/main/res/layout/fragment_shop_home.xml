@@ -23,11 +23,10 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/textViewUser"
+                    android:id="@+id/textWelcomeUser"
                     style="@style/viewParent.headerText"
                     android:maxLines="2"
                     android:maxWidth="250dp"
-                    android:text="Hi Tim!"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
@@ -175,44 +174,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <TextView
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:text="Game Servers"
-                    style="@style/viewParent.headerText"/>
-
-                <TextView
-                    android:layout_alignParentRight="true"
-                    style="@style/viewParent"
-                    android:text="See All"
-                    android:layout_centerVertical="true"
-                    android:textSize="@dimen/headerMoreTextSize"
-                    android:textColor="@color/primaryTextColor"
-                    android:textStyle="bold"/>
-
-            </RelativeLayout>
-
-            <!--remove the below layout with recycler view, use card poplar courses as model for design-->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <include layout="@layout/card_product_group"/>
-                <include layout="@layout/card_product_group"/>
-                <include layout="@layout/card_product_group"/>
-                <include layout="@layout/card_product_group"/>
-                <include layout="@layout/card_product_group"/>
-
-            </LinearLayout>
-
+            
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

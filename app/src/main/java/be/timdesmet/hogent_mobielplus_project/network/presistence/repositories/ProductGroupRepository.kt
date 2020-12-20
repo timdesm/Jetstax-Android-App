@@ -20,8 +20,6 @@ class ProductGroupRepository(private val database: LocalDB) {
 
     val groups: LiveData<List<ProductGroup>> = Transformations.map(database.productGroupDAO.getProductGroups()) {it?.map { g -> g.toDomain() }}
 
-    var selectedGroup = MutableLiveData<ProductGroup>()
-
     suspend fun refreshGroups() {
         withContext(Dispatchers.IO) {
             val response = JetstaxApi.buildApi(ShopEndpoint::class.java).getProductGroups()
@@ -35,10 +33,6 @@ class ProductGroupRepository(private val database: LocalDB) {
                 throw Exception("${response.code()}: ${response.message()}")
             }
         }
-    }
-
-    fun loadGroup(id: Int) {
-        selectedGroup.value = null
     }
 
     fun getGroup(id: Int) : LiveData<ProductGroup> {

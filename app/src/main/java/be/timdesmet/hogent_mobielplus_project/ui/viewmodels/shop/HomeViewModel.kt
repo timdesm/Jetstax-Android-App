@@ -29,32 +29,11 @@ class HomeViewModel(private val app: Application) : ViewModel() {
     val banner: LiveData<Banner> get() = bannerRepository.banner
     val productGroups: LiveData<List<ProductGroup>> get() = productGroupRepository.groups
 
-    private var _viewGroup = MutableLiveData<ProductGroup>()
-    val viewGroup: LiveData<ProductGroup> get() = _viewGroup
-
     init {
         if(NetworkUtil.isConnected(app)) {
             loadProductGroups()
             loadBanner()
         }
-    }
-
-    fun viewGroup(group: ProductGroup) {
-        viewModelScope.launch {
-            try {
-                val products = productGroupRepository.getGroupProducts(group.id)
-                products.observeForever {
-                    _viewGroup.value = group.loadProducts(it)
-                }
-            } catch (e: Exception){
-                e.printStackTrace()
-                Toast.makeText(app, "Error ${e.message}", Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
-    fun onGroupNavigate() {
-        productGroupRepository.selectedGroup.value = null
     }
 
     private fun loadProductGroups() {

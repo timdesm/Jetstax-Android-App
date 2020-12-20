@@ -8,19 +8,23 @@ import be.timdesmet.hogent_mobielplus_project.network.presistence.daos.user.Sess
 import be.timdesmet.hogent_mobielplus_project.network.presistence.daos.shop.BannerDAO
 import be.timdesmet.hogent_mobielplus_project.network.presistence.daos.shop.ProductDAO
 import be.timdesmet.hogent_mobielplus_project.network.presistence.daos.shop.ProductGroupDAO
+import be.timdesmet.hogent_mobielplus_project.network.presistence.daos.user.ClientDAO
 import be.timdesmet.hogent_mobielplus_project.network.presistence.dbos.user.SessionDBO
 import be.timdesmet.hogent_mobielplus_project.network.presistence.dbos.shop.BannerDBO
 import be.timdesmet.hogent_mobielplus_project.network.presistence.dbos.shop.ProductGroupDBO
 import be.timdesmet.hogent_mobielplus_project.network.presistence.dbos.shop.product.ProductDBO
+import be.timdesmet.hogent_mobielplus_project.network.presistence.dbos.user.ClientDBO
 
 @Database(entities = [
     SessionDBO::class,
+    ClientDBO::class,
     BannerDBO::class,
     ProductDBO::class,
     ProductGroupDBO::class
 ], version = 1, exportSchema = false)
 abstract class LocalDB: RoomDatabase() {
     abstract val sessionDAO: SessionDAO
+    abstract val clientDAO: ClientDAO
     abstract val bannerDAO: BannerDAO
     abstract val productDAO: ProductDAO
     abstract val productGroupDAO: ProductGroupDAO

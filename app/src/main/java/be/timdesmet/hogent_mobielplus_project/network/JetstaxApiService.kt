@@ -13,10 +13,7 @@ import retrofit2.Converter
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 import java.lang.reflect.Type
 
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
@@ -53,7 +50,7 @@ interface UserEndpoint {
     suspend fun validate(@Body validateDTO: ValidateDTO) : Response<ValidateResponseDTO>
 
     @GET("app/user/details/{email}")
-    suspend fun getDetails(@Body validateDTO: ValidateDTO) : Response<ValidateResponseDTO>
+    suspend fun getClientDetails(@Path("email") email: String, @Header("Authorization") hash: String) : Response<ClientDTO>
 }
 
 interface ShopEndpoint {

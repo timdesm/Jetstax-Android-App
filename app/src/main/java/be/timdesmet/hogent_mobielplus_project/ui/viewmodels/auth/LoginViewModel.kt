@@ -26,6 +26,8 @@ class LoginViewModel(app: Application)  : ViewModel() {
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
+    val token = sessionRepository.token
+
     init {
         if(UserService.loggedIn) {
             viewModelScope.launch {
@@ -63,10 +65,6 @@ class LoginViewModel(app: Application)  : ViewModel() {
 
     private fun loggedIn() {
         Toast.makeText(app, "Successfully logged in", Toast.LENGTH_LONG).show()
-        Handler().postDelayed({
-            val intent = Intent(app, MainActivity::class.java)
-            app.startActivity(intent) // Fixen
-        }, 1000)
     }
 
     override fun onCleared() {

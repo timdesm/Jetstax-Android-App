@@ -6,6 +6,7 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import be.timdesmet.hogent_mobielplus_project.R
 import be.timdesmet.hogent_mobielplus_project.databinding.FragmentShopHomeBinding
+import be.timdesmet.hogent_mobielplus_project.services.UserService
 import be.timdesmet.hogent_mobielplus_project.ui.adapters.shop.HomeProductGroupListAdapter
 import be.timdesmet.hogent_mobielplus_project.ui.adapters.shop.HomeProductGroupListListener
 import be.timdesmet.hogent_mobielplus_project.ui.viewmodels.shop.HomeViewModel
@@ -42,6 +44,18 @@ class HomeFragment : Fragment() {
         super.onStart()
         setupProductGroups()
         setupBanner()
+        setupClient()
+    }
+
+    private fun setupClient() {
+        try {
+            UserService.client.observe(viewLifecycleOwner, Observer {
+                binding.textWelcomeUser.text = "Hi ${it?.firstname}!"
+            })
+        }
+        catch (e: Exception) {
+            Toast.makeText(activity, "Client details could not be loaded", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun setupProductGroups() {
@@ -57,7 +71,6 @@ class HomeFragment : Fragment() {
                     ?.replace(R.id.fragment_wrapper, groupFragment)
                     ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     ?.commit()
-                homeViewModel.onGroupNavigate()
             }
         ))
         binding.categoryList.adapter = groupAdapter

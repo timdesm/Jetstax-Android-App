@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -16,11 +17,13 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import be.timdesmet.hogent_mobielplus_project.R
 import be.timdesmet.hogent_mobielplus_project.navigation.BottomNavigationBehavior
+import be.timdesmet.hogent_mobielplus_project.services.UserService
 import be.timdesmet.hogent_mobielplus_project.ui.viewmodels.MainViewModel
 import be.timdesmet.hogent_mobielplus_project.ui.viewmodels.shop.HomeViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
